@@ -1,7 +1,9 @@
+import json
 import time
 from urllib.parse import urlencode, urljoin
 
 from scrapy import Spider, Request
+from scrapy.exceptions import CloseSpider
 
 
 class InfoSpider(Spider):
@@ -18,6 +20,10 @@ class InfoSpider(Spider):
     }
     _base_url = "https://www.lolobun.com/ajax/common.ashx"
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.output_file = "data/novels.jsonl"
+
     async def start(self):
         urls = [self._join_url()]
         for url in urls:
@@ -33,7 +39,7 @@ class InfoSpider(Spider):
     def parse(self, response):
         info_list: list = response.json().get("data", [])
         if not info_list:
-            return
+            raise CloseSpider("No more data")
         for info in info_list:
             yield info
         yield response.follow(self._join_url(), callback=self.parse)

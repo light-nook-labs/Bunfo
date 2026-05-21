@@ -1,0 +1,54 @@
+name: Crawl and Deploy
+
+on:
+  schedule:
+    # 每天北京时间 2:00 (UTC 18:00)
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Run spider
+        run: |
+          uv sync
+          mkdir -p data
+          uv run scrapy crawl info
+
+      - name: Convert to JSON
+        run: uv run python convert.py
+
+      - name: Copy data to docs
+        run: cp data/novels.json docs/data/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: crawl
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

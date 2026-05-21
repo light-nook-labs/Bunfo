@@ -65,8 +65,10 @@ db.sqlite3-journal
 instance/
 .webassets-cache
 
-# Scrapy stuff:
-.scrapy
+# Scrapy output
+data/*.jsonl
+data/*.json
+!docs/data/.gitkeep
 
 # Sphinx documentation
 docs/_build/

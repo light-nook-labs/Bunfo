@@ -154,6 +154,13 @@ body {
 @media (max-width: 640px) {
     .nav-hamburger {
         display: flex;
+        margin-left: auto;
+    }
+
+    .nav-container {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: var(--space-md);
     }
 
     .nav-links {
@@ -178,8 +185,7 @@ body {
         visibility: visible;
     }
 
-    .nav-links .nav-link,
-    .nav-links .theme-toggle {
+    .nav-links .nav-link {
         padding: var(--space-md) 0;
         width: 100%;
         text-align: left;
@@ -187,6 +193,11 @@ body {
 
     .nav-link::after {
         display: none;
+    }
+
+    .theme-toggle {
+        position: static;
+        margin-left: 0;
     }
 }
 
@@ -226,11 +237,13 @@ body {
     background: none;
     border: 1px solid var(--border-strong);
     border-radius: 4px;
-    padding: var(--space-xs) var(--space-sm);
+    width: 40px;
+    height: 40px;
+    padding: 0;
     cursor: pointer;
     color: var(--text-secondary);
     font-family: var(--font-mono);
-    font-size: 1rem;
+    font-size: 1.5rem;
     transition: all var(--transition-fast);
     display: flex;
     align-items: center;
@@ -337,25 +350,32 @@ body {
 .novels-section {
     max-width: 1400px;
     margin: 0 auto;
-    padding: var(--space-2xl) var(--space-xl);
+    padding: var(--space-xl) var(--space-sm);
+}
+
+@media (min-width: 640px) {
+    .novels-section {
+        padding: var(--space-2xl) var(--space-xl);
+    }
 }
 
 .novels-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
+    gap: var(--space-sm);
 }
 
 @media (min-width: 640px) {
     .novels-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
     }
 }
 
 @media (min-width: 1024px) {
     .novels-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-xl);
+        gap: var(--space-lg);
     }
 }
 
@@ -486,6 +506,12 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 640px) {
+    .novel-intro {
+        display: none;
+    }
 }
 
 .tags {

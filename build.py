@@ -6,7 +6,7 @@ Outputs to build/ directory ready for GitHub Pages.
 
 import json
 import shutil
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
@@ -20,8 +20,9 @@ def load_novels() -> list:
 
 
 def format_update_time() -> str:
-    """Format current time for display."""
-    return datetime.now().strftime("%Y-%m-%d %H:%M")
+    """Format current time for display in Chinese timezone."""
+    tz = timezone(timedelta(hours=8))  # UTC+8 for China
+    return datetime.now(tz).strftime("%Y-%m-%d %H:%M")
 
 
 def split_intro(intro: str) -> list:
@@ -47,6 +48,11 @@ def build_site():
     static_build_dir = build_dir / "static"
     if static_dir.exists():
         shutil.copytree(static_dir, static_build_dir)
+
+    # Copy favicon to root for compatibility
+    favicon_src = static_dir / "favicon.svg"
+    if favicon_src.exists():
+        shutil.copy(favicon_src, build_dir / "favicon.svg")
 
     # Setup Jinja2
     env = Environment(loader=FileSystemLoader(templates_dir))
@@ -95,7 +101,8 @@ def build_site():
     )
     with open(build_dir / "about.html", "w", encoding="utf-8") as f:
         f.write(about_html)
-    print(f"Generated: about.html")
+
+    print("Generated: about.html")
 
 
     # Render list page with pagination

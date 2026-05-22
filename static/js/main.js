@@ -167,12 +167,35 @@
     }
 
     function init() {
+        initMobileNav();
         initSearch();
         initLazyLoading();
         initSmoothScroll();
         initLoadMore();
         initThemeToggle();
     }
+
+    // Mobile navigation (hamburger menu)
+    function initMobileNav() {
+        const hamburger = document.getElementById('navHamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (!hamburger || !navLinks) return;
+
+        hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
 
     // Theme toggle functionality
     function initThemeToggle() {

@@ -59,11 +59,9 @@
         </div>
         <div class="pagination-links" id="paginationLinks">
             {% if current_page > 1 %}
-            <a href="{% if current_page == 2 %}list.html{% else %}list_{{ current_page - 1 }}.html{% endif %}" class="pagination-link pagination-prev">
-                ← 上一页
-            </a>
+            <a href="{% if current_page == 2 %}list.html{% else %}list_{{ current_page - 1 }}.html{% endif %}" class="pagination-link pagination-prev" aria-label="上一页">←</a>
             {% else %}
-            <span class="pagination-link pagination-prev pagination-disabled">← 上一页</span>
+            <span class="pagination-link pagination-prev pagination-disabled" aria-label="上一页">←</span>
             {% endif %}
 
             <div class="pagination-numbers">
@@ -113,11 +111,9 @@
             </div>
 
             {% if current_page < total_pages %}
-            <a href="list_{{ current_page + 1 }}.html" class="pagination-link pagination-next">
-                下一页 →
-            </a>
+            <a href="list_{{ current_page + 1 }}.html" class="pagination-link pagination-next" aria-label="下一页">→</a>
             {% else %}
-            <span class="pagination-link pagination-next pagination-disabled">下一页 →</span>
+            <span class="pagination-link pagination-next pagination-disabled" aria-label="下一页">→</span>
             {% endif %}
         </div>
     </nav>

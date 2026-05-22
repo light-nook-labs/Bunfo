@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ base_path }}static/css/index.css">
+{% endblock %}
+
+{% block title %}Bunfo - 轻小说文库{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Light Novel Archive</div>
+        <h1 class="hero-title">
+            <span class="title-line">探索</span>
+            <span class="title-line title-accent">异世界</span>
+            <span class="title-line">的无限可能</span>
+        </h1>
+        <p class="hero-desc">
+            精选来自 LoloBun 的最新轻小说，每日更新。<br>
+            穿越、转生、魔法、战斗——开启你的异世界之旅。
+        </p>
+        <div class="hero-actions">
+            <a href="list.html" class="btn btn-large btn-primary">
+                <span>浏览文库</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a href="#featured" class="btn btn-large btn-ghost">
+                <span>精选推荐</span>
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">{{ total_novels }}</span>
+                <span class="stat-label">本小说</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-number">每日</span>
+                <span class="stat-label">自动更新</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="floating-cards">
+            {% for novel in featured_novels %}
+            <div class="float-card card-{{ loop.index }}" style="--delay: {{ loop.index * 0.2 }}s">
+                {% if novel.NovelCover and novel.NovelCover != 'defaultNew.jpg' %}
+                <img src="{{ cover_base_url }}{{ novel.NovelCover }}" alt="" loading="lazy">
+                {% else %}
+                <div class="float-placeholder">◈</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Section -->
+<section class="featured" id="featured">
+    <div class="section-header">
+        <span class="section-tag">Featured</span>
+        <h2 class="section-title">精选推荐</h2>
+    </div>
+    <div class="featured-grid">
+        {% for novel in featured_novels %}
+        <article class="featured-card">
+            <a href="n/{{ novel.NovelID }}.html" class="featured-link">
+                <div class="featured-cover">
+                    {% if novel.NovelCover and novel.NovelCover != 'defaultNew.jpg' %}
+                    <img src="{{ cover_base_url }}{{ novel.NovelCover }}" alt="{{ novel.NovelName }}" loading="lazy">
+                    {% else %}
+                    <div class="featured-placeholder">◈</div>
+                    {% endif %}
+                </div>
+                <div class="featured-info">
+                    <span class="featured-type">{{ novel.TypeName }}</span>
+                    <h3 class="featured-title">{{ novel.NovelName }}</h3>
+                    <p class="featured-intro">{{ novel.Intro[:80] }}{% if novel.Intro|length > 80 %}...{% endif %}</p>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="section-footer">
+        <a href="list.html" class="btn btn-secondary">
+            <span>查看全部</span>
+            <span>→</span>
+        </a>
+    </div>
+</section>
+
+<!-- Categories Grid -->
+<section class="categories">
+    <div class="section-header center">
+        <span class="section-tag">Categories</span>
+        <h2 class="section-title">按类型浏览</h2>
+    </div>
+    <div class="category-list">
+        {% for type_name, count in type_counts.items() %}
+        <a href="type/{{ type_name|safe_type }}.html" class="category-item">
+            <span class="category-name">{{ type_name }}</span>
+            <span class="category-count">{{ count }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about">
+    <div class="about-content">
+        <h2 class="about-title">关于 Bunfo</h2>
+        <p class="about-text">
+            Bunfo 是一个自动化轻小说爬虫项目，每天自动抓取 LoloBun 的最新小说数据。
+            使用 GitHub Actions 定时更新，完全开源。
+        </p>
+        <div class="about-links">
+            <a href="list.html" class="about-link">浏览全部 →</a>
+            <a href="https://github.com/light-nook-labs/Bunfo" class="about-link" target="_blank">GitHub →</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

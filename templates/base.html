@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}轻小说文库{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ base_path }}static/css/themes.css">
+    <link rel="stylesheet" href="{{ base_path }}static/css/style.css">
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="{{ base_path }}index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Bunfo</span>
+            </a>
+            <div class="nav-links">
+                <a href="{{ base_path }}index.html" class="nav-link">文库</a>
+                <a href="{{ base_path }}about.html" class="nav-link">关于</a>
+                <a href="https://github.com/light-nook-labs/Bunfo" class="nav-link" target="_blank">GitHub</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                    <span class="theme-icon theme-icon-dark">◐</span>
+                    <span class="theme-icon theme-icon-light">◑</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">数据来源于 <a href="https://www.lolobun.com" target="_blank">LoloBun</a></p>
+            <p class="footer-update">最后更新: {{ update_time }}</p>
+        </div>
+    </footer>
+
+    <script src="{{ base_path }}static/js/main.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

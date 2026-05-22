@@ -1,7 +1,7 @@
-.PHONY: crawl convert serve clean test deploy
+.PHONY: crawl convert build serve clean test install dev
 
 # 默认目标
-all: crawl convert
+all: crawl convert build
 
 # 运行爬虫生成 JSONL
 crawl:
@@ -11,16 +11,31 @@ crawl:
 convert:
 	uv run python convert.py
 
-# 完整流程：爬虫 + 转换
-update: crawl convert
+# 构建静态网站
+build:
+	uv run python build.py
 
-# 本地预览 GitHub Pages
+# 完整流程：爬虫 + 转换 + 构建
+update: crawl convert build
+
+# 本地预览构建后的网站
 serve:
-	cd docs && python3 -m http.server 8000
+	cd build && python3 -m http.server 8000
+
+# 开发模式：先清理、构建，再启动服务器
+dev:
+	@echo "Cleaning old build..."
+	@rm -rf build/
+	@echo "Building site..."
+	@uv run python build.py
+	@echo "Starting server at http://localhost:8000"
+	@echo "Press Ctrl+C to stop"
+	@cd build && python3 -m http.server 8000
 
 # 清理数据文件
 clean:
-	rm -f data/*.jsonl data/*.json docs/data/novels.json
+	rm -rf build/
+	rm -f data/*.jsonl data/*.json
 
 # 测试爬虫（只爬少量页面）
 test:
@@ -29,7 +44,3 @@ test:
 # 安装依赖
 install:
 	uv sync
-
-# 手动部署（复制数据到 docs）
-deploy:
-	cp data/novels.json docs/data/

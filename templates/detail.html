@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}{{ novel.NovelName }} - Bunfo{% endblock %}
+
+{% block content %}
+<article class="novel-detail">
+    <div class="detail-container">
+        <div class="detail-cover-section">
+            <div class="detail-cover-wrapper">
+                {% if novel.NovelCover and novel.NovelCover != 'defaultNew.jpg' %}
+                <img class="detail-cover" src="{{ cover_base_url }}{{ novel.NovelCover }}" alt="{{ novel.NovelName }}">
+                {% else %}
+                <div class="detail-cover-placeholder">
+                    <span class="placeholder-icon">◈</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="detail-info">
+            <div class="detail-header">
+                <span class="detail-type">{{ novel.TypeName }}</span>
+                <h1 class="detail-title">{{ novel.NovelName }}</h1>
+            </div>
+
+            <div class="detail-tags">
+                {% for tag in novel.Tags %}
+                <span class="detail-tag">{{ tag.Value }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="detail-intro">
+                <h2 class="section-title">简介</h2>
+                <div class="intro-content">
+                    {% for paragraph in intro_paragraphs %}
+                    <p>{{ paragraph }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="detail-meta">
+                <div class="meta-item">
+                    <span class="meta-label">小说ID</span>
+                    <span class="meta-value">{{ novel.NovelID }}</span>
+                </div>
+            </div>
+
+            <div class="detail-actions">
+                <a href="{{ base_path }}list.html" class="btn btn-secondary">← 返回列表</a>
+                <a href="https://www.lolobun.com/n/{{ novel.NovelID }}" class="btn btn-primary" target="_blank">访问原站</a>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}

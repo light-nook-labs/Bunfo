@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}全部轻小说 - Bunfo{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <div class="header-content">
+        <h1 class="page-title">文库</h1>
+        <p class="page-subtitle">探索异世界的无限可能</p>
+    </div>
+    <div class="search-section">
+        <div class="search-box">
+            <input type="search" id="searchInput" class="search-input" placeholder="搜索小说、作者或标签...">
+            <span class="search-icon">⌕</span>
+        </div>
+    </div>
+</header>
+
+<section class="novels-section">
+    <div class="novels-grid" id="novelsGrid">
+        {% for novel in novels %}
+        <article class="novel-card" data-id="{{ novel.NovelID }}">
+            <a href="n/{{ novel.NovelID }}.html" class="card-link">
+                <div class="cover-wrapper">
+                    {% if novel.NovelCover and novel.NovelCover != 'defaultNew.jpg' %}
+                    <img class="novel-cover" src="{{ cover_base_url }}{{ novel.NovelCover }}" alt="{{ novel.NovelName }}" loading="lazy">
+                    {% else %}
+                    <div class="cover-placeholder">
+                        <span class="placeholder-icon">◈</span>
+                    </div>
+                    {% endif %}
+                    <span class="type-badge">{{ novel.TypeName }}</span>
+                    <div class="cover-overlay">
+                        <span class="view-text">查看详情</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="novel-title">{{ novel.NovelName }}</h3>
+                    <p class="novel-intro">{{ novel.Intro[:120] }}{% if novel.Intro|length > 120 %}...{% endif %}</p>
+                    <div class="tags">
+                        {% for tag in novel.Tags[:3] %}
+                        <span class="tag">{{ tag.Value }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="empty-state" id="emptyState" style="display: none;">
+        <span class="empty-icon">◈</span>
+        <p>没有找到匹配的小说</p>
+    </div>
+
+    {% if total_pages > 1 %}
+    <nav class="pagination" aria-label="分页" id="paginationNav">
+        <div class="pagination-info" id="paginationInfo">
+            第 {{ current_page }} / {{ total_pages }} 页
+        </div>
+        <div class="pagination-links" id="paginationLinks">
+            {% if current_page > 1 %}
+            <a href="{% if current_page == 2 %}list.html{% else %}list_{{ current_page - 1 }}.html{% endif %}" class="pagination-link pagination-prev">
+                ← 上一页
+            </a>
+            {% else %}
+            <span class="pagination-link pagination-prev pagination-disabled">← 上一页</span>
+            {% endif %}
+
+            <div class="pagination-numbers">
+                {% set max_visible = 5 %}
+                {% set half_visible = max_visible // 2 %}
+
+                {% if total_pages <= max_visible %}
+                    {% for page in range(1, total_pages + 1) %}
+                        {% if page == current_page %}
+                        <span class="pagination-number pagination-current">{{ page }}</span>
+                        {% else %}
+                        <a href="{% if page == 1 %}list.html{% else %}list_{{ page }}.html{% endif %}" class="pagination-number">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% if current_page == 1 %}
+                    <span class="pagination-number pagination-current">1</span>
+                    {% else %}
+                    <a href="list.html" class="pagination-number">1</a>
+                    {% endif %}
+
+                    {% set start_page = [current_page - half_visible + 1, 2] | max %}
+                    {% set end_page = [current_page + half_visible - 1, total_pages - 1] | min %}
+
+                    {% if start_page > 2 %}
+                    <span class="pagination-ellipsis">...</span>
+                    {% endif %}
+
+                    {% for page in range(start_page, end_page + 1) %}
+                        {% if page == current_page %}
+                        <span class="pagination-number pagination-current">{{ page }}</span>
+                        {% else %}
+                        <a href="{% if page == 1 %}list.html{% else %}list_{{ page }}.html{% endif %}" class="pagination-number">{{ page }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if end_page < total_pages - 1 %}
+                    <span class="pagination-ellipsis">...</span>
+                    {% endif %}
+
+                    {% if current_page == total_pages %}
+                    <span class="pagination-number pagination-current">{{ total_pages }}</span>
+                    {% else %}
+                    <a href="list_{{ total_pages }}.html" class="pagination-number">{{ total_pages }}</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+
+            {% if current_page < total_pages %}
+            <a href="list_{{ current_page + 1 }}.html" class="pagination-link pagination-next">
+                下一页 →
+            </a>
+            {% else %}
+            <span class="pagination-link pagination-next pagination-disabled">下一页 →</span>
+            {% endif %}
+        </div>
+    </nav>
+    {% endif %}
+</section>
+
+<div class="stats-bar">
+    <span id="novelCount">共 {{ total_novels }} 本小说</span>
+    {% if total_pages > 1 %}
+    <span class="stats-divider">|</span>
+    <span>第 {{ current_page }} 页</span>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+window.novelsData = {{ novels_json|safe }};
+</script>
+{% endblock %}

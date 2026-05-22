@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}{{ type_name }} - Bunfo{% endblock %}
+
+{% block content %}
+<header class="page-header">
+    <div class="header-content">
+        <h1 class="page-title">{{ type_name }}</h1>
+        <p class="page-subtitle">共 {{ novels|length }} 本小说</p>
+    </div>
+    <div class="search-section">
+        <div class="search-box">
+            <input type="search" id="searchInput" class="search-input" placeholder="在{{ type_name }}类型中搜索...">
+            <span class="search-icon">⌕</span>
+        </div>
+    </div>
+</header>
+
+<section class="novels-section">
+    <div class="novels-grid" id="novelsGrid" data-page-size="20">
+        {% for novel in novels %}
+        <article class="novel-card" data-id="{{ novel.NovelID }}" data-index="{{ loop.index0 }}">
+            <a href="../n/{{ novel.NovelID }}.html" class="card-link">
+                <div class="cover-wrapper">
+                    {% if novel.NovelCover and novel.NovelCover != 'defaultNew.jpg' %}
+                    <img class="novel-cover" src="{{ cover_base_url }}{{ novel.NovelCover }}" alt="{{ novel.NovelName }}" loading="lazy">
+                    {% else %}
+                    <div class="cover-placeholder">
+                        <span class="placeholder-icon">◈</span>
+                    </div>
+                    {% endif %}
+                    <span class="type-badge">{{ novel.TypeName }}</span>
+                    <div class="cover-overlay">
+                        <span class="view-text">查看详情</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="novel-title">{{ novel.NovelName }}</h3>
+                    <p class="novel-intro">{{ novel.Intro[:120] }}{% if novel.Intro|length > 120 %}...{% endif %}</p>
+                    <div class="tags">
+                        {% for tag in novel.Tags[:3] %}
+                        <span class="tag">{{ tag.Value }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="empty-state" id="emptyState" style="display: none;">
+        <span class="empty-icon">◈</span>
+        <p>没有找到匹配的小说</p>
+    </div>
+
+    <div class="load-more-container" id="loadMoreContainer">
+        <button class="btn btn-secondary" id="loadMoreBtn">
+            <span>加载更多</span>
+            <span class="load-more-count">(<span id="loadedCount">0</span> / <span id="totalCount">{{ novels|length }}</span>)</span>
+        </button>
+    </div>
+
+    <div class="type-nav">
+        <a href="../list.html" class="btn btn-secondary">← 返回全部</a>
+    </div>
+</section>
+
+<div class="stats-bar">
+    <span id="novelCount">{{ type_name }}: <span id="statsVisible">0</span> / {{ novels|length }} 本</span>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+window.novelsData = {{ novels_json|safe }};
+</script>
+{% endblock %}

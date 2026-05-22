@@ -394,10 +394,12 @@ body {
     transition: all var(--transition-base);
 }
 
-.novel-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-strong);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+@media (hover: hover) {
+    .novel-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-strong);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
 }
 
 .card-link {
@@ -420,8 +422,10 @@ body {
     transition: transform var(--transition-slow);
 }
 
-.novel-card:hover .novel-cover {
-    transform: scale(1.05);
+@media (hover: hover) {
+    .novel-card:hover .novel-cover {
+        transform: scale(1.05);
+    }
 }
 
 .cover-placeholder {
@@ -450,8 +454,10 @@ body {
     transition: opacity var(--transition-base);
 }
 
-.novel-card:hover .cover-overlay {
-    opacity: 1;
+@media (hover: hover) {
+    .novel-card:hover .cover-overlay {
+        opacity: 1;
+    }
 }
 
 .view-text {

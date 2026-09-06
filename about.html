@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 - Bunfo</title>
+    <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/themes.css">
+    <link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/about.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Bunfo</span>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="切换菜单" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">文库</a>
+                <a href="about.html" class="nav-link">关于</a>
+                <a href="https://github.com/light-nook-labs/Bunfo" class="nav-link" target="_blank">GitHub</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                <span class="theme-icon theme-icon-dark">◐</span>
+                <span class="theme-icon theme-icon-light">◑</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main">
+<section class="about-page">
+    <div class="about-container">
+        <header class="about-header">
+            <h1 class="about-title">关于 Bunfo</h1>
+            <p class="about-tagline">自动化轻小说收集与展示平台</p>
+        </header>
+
+        <div class="about-content">
+            <section class="about-section">
+                <h2>项目简介</h2>
+                <p>Bunfo 是一个开源的轻小说归档项目，使用 Scrapy 框架自动抓取 LoloBun 网站的数据，并通过 GitHub Actions 每日定时更新。所有数据均以静态 HTML 页面的形式托管在 GitHub Pages 上，无需后端服务器即可运行。</p>
+            </section>
+
+            <section class="about-section">
+                <h2>技术栈</h2>
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <span class="tech-name">Scrapy</span>
+                        <span class="tech-desc">Python 爬虫框架，用于数据采集</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-name">Jinja2</span>
+                        <span class="tech-desc">模板引擎，生成静态 HTML</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-name">GitHub Actions</span>
+                        <span class="tech-desc">定时任务，每日自动更新</span>
+                    </div>
+                    <div class="tech-item">
+                        <span class="tech-name">GitHub Pages</span>
+                        <span class="tech-desc">静态网站托管</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2>功能特性</h2>
+                <ul class="feature-list">
+                    <li>每日自动抓取最新轻小说数据</li>
+                    <li>支持按类型浏览（魔法、都市、游戏等）</li>
+                    <li>全文搜索功能，支持标题、类型、标签</li>
+                    <li>响应式设计，适配桌面与移动端</li>
+                    <li>深色/浅色主题切换</li>
+                    <li>图片懒加载，优化性能</li>
+                </ul>
+            </section>
+
+            <section class="about-section">
+                <h2>数据来源</h2>
+                <p>所有小说数据来源于 <a href="https://www.lolobun.com" target="_blank">LoloBun</a>，仅供学习交流使用。如有侵权，请联系删除。</p>
+            </section>
+
+            <section class="about-section">
+                <h2>开源地址</h2>
+                <p>本项目完全开源，欢迎访问 <a href="https://github.com/light-nook-labs/Bunfo" target="_blank">GitHub 仓库</a> 贡献代码或提交 Issue。</p>
+            </section>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">数据来源于 <a href="https://www.lolobun.com" target="_blank">LoloBun</a></p>
+            <p class="footer-update">最后更新: 2026-09-07 04:09</p>
+        </div>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery - Bunfo</title>
+    <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/themes.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Bunfo</span>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="切换菜单" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html" class="nav-link">文库</a>
+                <a href="../about.html" class="nav-link">关于</a>
+                <a href="https://github.com/light-nook-labs/Bunfo" class="nav-link" target="_blank">GitHub</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                <span class="theme-icon theme-icon-dark">◐</span>
+                <span class="theme-icon theme-icon-light">◑</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main">
+<header class="page-header">
+    <div class="header-content">
+        <h1 class="page-title">Mystery</h1>
+        <p class="page-subtitle">共 3 本小说</p>
+    </div>
+    <div class="search-section">
+        <div class="search-box">
+            <input type="search" id="searchInput" class="search-input" placeholder="在Mystery类型中搜索...">
+            <span class="search-icon">⌕</span>
+        </div>
+    </div>
+</header>
+
+<section class="novels-section">
+    <div class="novels-grid" id="novelsGrid" data-page-size="20">
+        <article class="novel-card" data-id="5320378" data-index="0">
+            <a href="../n/5320378.html" class="card-link">
+                <div class="cover-wrapper">
+                    <img class="novel-cover" src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2026/04/76cf1e0b-2cff-4493-86e6-6405ad8c1901.jpg" alt="Who Hid the Secret in Hell?" loading="lazy">
+                    <span class="type-badge">Mystery</span>
+                    <div class="cover-overlay">
+                        <span class="view-text">查看详情</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="novel-title">Who Hid the Secret in Hell?</h3>
+                    <p class="novel-intro">Strange tombs lie strewn across the seas and mountains, uncanny graves adorning the rivers and the land.  
+Throughout th...</p>
+                    <div class="tags">
+                        <span class="tag">Adventure</span>
+                        <span class="tag">Inference</span>
+                        <span class="tag">Horror</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+        <article class="novel-card" data-id="5320428" data-index="1">
+            <a href="../n/5320428.html" class="card-link">
+                <div class="cover-wrapper">
+                    <img class="novel-cover" src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2026/04/db337ea6-e908-41fc-8b41-0297515e3a35.jpg" alt="The Shattered Realm" loading="lazy">
+                    <span class="type-badge">Mystery</span>
+                    <div class="cover-overlay">
+                        <span class="view-text">查看详情</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="novel-title">The Shattered Realm</h3>
+                    <p class="novel-intro">Ming Yi, an utterly ordinary college student not even worthy of being called a backup, was assassinated by a mysterious ...</p>
+                    <div class="tags">
+                        <span class="tag">Battle</span>
+                        <span class="tag">Doomsday</span>
+                        <span class="tag">Adventure</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+        <article class="novel-card" data-id="5320062" data-index="2">
+            <a href="../n/5320062.html" class="card-link">
+                <div class="cover-wrapper">
+                    <img class="novel-cover" src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/11/570a9ca9-c6f1-4afa-b813-fb869747b2c5.jpg" alt="Horror Novel Web" loading="lazy">
+                    <span class="type-badge">Mystery</span>
+                    <div class="cover-overlay">
+                        <span class="view-text">查看详情</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="novel-title">Horror Novel Web</h3>
+                    <p class="novel-intro">There are three kinds of people in the world who are the most despicable: those who have no desire, those who are not af...</p>
+                    <div class="tags">
+                        <span class="tag">Imagination</span>
+                        <span class="tag">Horror</span>
+                        <span class="tag">Transsexual</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+    </div>
+    <div class="empty-state" id="emptyState" style="display: none;">
+        <span class="empty-icon">◈</span>
+        <p>没有找到匹配的小说</p>
+    </div>
+
+    <div class="load-more-container" id="loadMoreContainer">
+        <button class="btn btn-secondary" id="loadMoreBtn">
+            <span>加载更多</span>
+            <span class="load-more-count">(<span id="loadedCount">0</span> / <span id="totalCount">3</span>)</span>
+        </button>
+    </div>
+
+    <div class="type-nav">
+        <a href="../list.html" class="btn btn-secondary">← 返回全部</a>
+    </div>
+</section>
+
+<div class="stats-bar">
+    <span id="novelCount">Mystery: <span id="statsVisible">0</span> / 3 本</span>
+</div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">数据来源于 <a href="https://www.lolobun.com" target="_blank">LoloBun</a></p>
+            <p class="footer-update">最后更新: 2026-09-07 04:09</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+<script>
+window.novelsData = [{"NovelID": 5320378, "NovelName": "Who Hid the Secret in Hell?", "NovelCover": "2026/04/76cf1e0b-2cff-4493-86e6-6405ad8c1901.jpg", "TypeName": "Mystery", "Intro": "Strange tombs lie strewn across the seas and mountains, uncanny graves adorning the rivers and the land.  \nThroughout the Divine Realm of Huaxia, rare and jagged places abound, drawing wronged bones to rest beneath towering peaks.  \nHow much do you truly know of this world’s secrets?  \nA thousand-year-old underground palace lies sealed beneath the lakebed, while undying shades wander the paths between tombs.  \nThe eerie ancient corpse standing in the dark—who is it smiling at?  \nThe decayed figure seated beside the old coffin—who is it whispering to?  \nWei Shenji, an ordinary high school girl, is swept overnight into a string of bizarre events.  \nWas it mere chance, or destiny long ordained?  \nForced to venture into baleful tombs, Wei Shenji survives by the narrowest margin, escaping death again and again.  \nAre vengeful spirits truly coming to claim lives, or is it all an elaborate deception?  \nTo grasp the meaning hidden within the game, one must kiss the Spider Lily of the Other Shore.", "Tags": [{"Key": 375, "Value": "Adventure"}, {"Key": 394, "Value": "Inference"}, {"Key": 400, "Value": "Horror"}]}, {"NovelID": 5320428, "NovelName": "The Shattered Realm", "NovelCover": "2026/04/db337ea6-e908-41fc-8b41-0297515e3a35.jpg", "TypeName": "Mystery", "Intro": "Ming Yi, an utterly ordinary college student not even worthy of being called a backup, was assassinated by a mysterious shadow. When he opened his eyes again, the world he once knew had become a complete stranger.\n\nCities had crumbled into ruins. Aberrant beasts roamed unchecked. The fate of his companions remained unknown.\n\nThis was a world gone to ruin.\nA world after death.\n\nIn a world without rules, if you were to meet someone truly precious, would you dare stand against the whole world for her?\n\nHow can these lost boys and girls once more go on to write an epic that belongs to the nameless?\n\nIf fate granted you one more chance to choose, would you leave this world a path to survive?", "Tags": [{"Key": 10, "Value": "Battle"}, {"Key": 73, "Value": "Doomsday"}, {"Key": 375, "Value": "Adventure"}, {"Key": 394, "Value": "Inference"}]}, {"NovelID": 5320062, "NovelName": "Horror Novel Web", "NovelCover": "2023/11/570a9ca9-c6f1-4afa-b813-fb869747b2c5.jpg", "TypeName": "Mystery", "Intro": "There are three kinds of people in the world who are the most despicable: those who have no desire, those who are not afraid of death, and those who are the \"authors\" of the \"Horror    Novel Web\". \nAfter becoming the author of \"Horror Novel Web\", more and more strange events appear around Ogata.", "Tags": [{"Key": 55, "Value": "Imagination"}, {"Key": 400, "Value": "Horror"}, {"Key": 401, "Value": "Transsexual"}]}];
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eastern - Bunfo</title>
+    <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/themes.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Bunfo</span>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="切换菜单" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html" class="nav-link">文库</a>
+                <a href="../about.html" class="nav-link">关于</a>
+                <a href="https://github.com/light-nook-labs/Bunfo" class="nav-link" target="_blank">GitHub</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                <span class="theme-icon theme-icon-dark">◐</span>
+                <span class="theme-icon theme-icon-light">◑</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main">
+<header class="page-header">
+    <div class="header-content">
+        <h1 class="page-title">Eastern</h1>
+        <p class="page-subtitle">共 2 本小说</p>
+    </div>
+    <div class="search-section">
+        <div class="search-box">
+            <input type="search" id="searchInput" class="search-input" placeholder="在Eastern类型中搜索...">
+            <span class="search-icon">⌕</span>
+        </div>
+    </div>
+</header>
+
+<section class="novels-section">
+    <div class="novels-grid" id="novelsGrid" data-page-size="20">
+        <article class="novel-card" data-id="5320097" data-index="0">
+            <a href="../n/5320097.html" class="card-link">
+                <div class="cover-wrapper">
+                    <img class="novel-cover" src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/06/e8ee12cb-cec3-4a7d-a5a6-afb7826a4ea7.jpg" alt="After recognizing the reality, they began to chase me back" loading="lazy">
+                    <span class="type-badge">Eastern</span>
+                    <div class="cover-overlay">
+                        <span class="view-text">查看详情</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="novel-title">After recognizing the reality, they began to chase me back</h3>
+                    <p class="novel-intro">Lyle was very unlucky as all the women in his adventure group were bad.
+The adventurer was an arrogant noble lady.
+The p...</p>
+                    <div class="tags">
+                        <span class="tag">Fantasy</span>
+                        <span class="tag">Love</span>
+                        <span class="tag">Daily</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+        <article class="novel-card" data-id="5320149" data-index="1">
+            <a href="../n/5320149.html" class="card-link">
+                <div class="cover-wrapper">
+                    <img class="novel-cover" src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/07/ee4c8ff9-9248-4c1a-a50b-1384e2073128.jpg" alt="The Cost of Hope" loading="lazy">
+                    <span class="type-badge">Eastern</span>
+                    <div class="cover-overlay">
+                        <span class="view-text">查看详情</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="novel-title">The Cost of Hope</h3>
+                    <p class="novel-intro">Turing from Childhood,
+ran thirty miles,
+letting the winter cold wind freeze his face,
+just to catch a glimpse of you in...</p>
+                    <div class="tags">
+                        <span class="tag">Love</span>
+                        <span class="tag">Marriage</span>
+                        <span class="tag">Inference</span>
+                    </div>
+                </div>
+            </a>
+        </article>
+    </div>
+    <div class="empty-state" id="emptyState" style="display: none;">
+        <span class="empty-icon">◈</span>
+        <p>没有找到匹配的小说</p>
+    </div>
+
+    <div class="load-more-container" id="loadMoreContainer">
+        <button class="btn btn-secondary" id="loadMoreBtn">
+            <span>加载更多</span>
+            <span class="load-more-count">(<span id="loadedCount">0</span> / <span id="totalCount">2</span>)</span>
+        </button>
+    </div>
+
+    <div class="type-nav">
+        <a href="../list.html" class="btn btn-secondary">← 返回全部</a>
+    </div>
+</section>
+
+<div class="stats-bar">
+    <span id="novelCount">Eastern: <span id="statsVisible">0</span> / 2 本</span>
+</div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">数据来源于 <a href="https://www.lolobun.com" target="_blank">LoloBun</a></p>
+            <p class="footer-update">最后更新: 2026-09-07 04:09</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+<script>
+window.novelsData = [{"NovelID": 5320097, "NovelName": "After recognizing the reality, they began to chase me back", "NovelCover": "2023/06/e8ee12cb-cec3-4a7d-a5a6-afb7826a4ea7.jpg", "TypeName": "Eastern", "Intro": "Lyle was very unlucky as all the women in his adventure group were bad.\nThe adventurer was an arrogant noble lady.\nThe priestess was actually a sophisticated  angelic bitch\nThe mage was a hidden cruel and sickly-sweet lady.\nHe did all the dirty work and took the blame for everything.\nOne day, Lyle had enough of them and decided to quit the adventure group.\n...\nAnd then, after that, how did they start to come back to him one by one, filled with regret?", "Tags": [{"Key": 16, "Value": "Fantasy"}, {"Key": 58, "Value": "Love"}, {"Key": 396, "Value": "Daily"}, {"Key": 399, "Value": "Gxb"}]}, {"NovelID": 5320149, "NovelName": "The Cost of Hope", "NovelCover": "2023/07/ee4c8ff9-9248-4c1a-a50b-1384e2073128.jpg", "TypeName": "Eastern", "Intro": "Turing from Childhood,\nran thirty miles,\nletting the winter cold wind freeze his face,\njust to catch a glimpse of you in the empty confessional at the church.\nEmpty or not,\nit's all her own business.\n\nps: This is a story where the protagonist, along with another person, uncover the terrifying secrets of this eerie world.", "Tags": [{"Key": 58, "Value": "Love"}, {"Key": 145, "Value": "Marriage"}, {"Key": 394, "Value": "Inference"}, {"Key": 401, "Value": "Transsexual"}]}];
+</script>
+</body>
+</html>

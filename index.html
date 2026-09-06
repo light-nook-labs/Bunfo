@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunfo - 轻小说文库</title>
+    <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/themes.css">
+    <link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">Bunfo</span>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="切换菜单" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">文库</a>
+                <a href="about.html" class="nav-link">关于</a>
+                <a href="https://github.com/light-nook-labs/Bunfo" class="nav-link" target="_blank">GitHub</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                <span class="theme-icon theme-icon-dark">◐</span>
+                <span class="theme-icon theme-icon-light">◑</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Light Novel Archive</div>
+        <h1 class="hero-title">
+            <span class="title-line">探索</span>
+            <span class="title-line title-accent">异世界</span>
+            <span class="title-line">的无限可能</span>
+        </h1>
+        <p class="hero-desc">
+            精选来自 LoloBun 的最新轻小说，每日更新。<br>
+            穿越、转生、魔法、战斗——开启你的异世界之旅。
+        </p>
+        <div class="hero-actions">
+            <a href="list.html" class="btn btn-large btn-primary">
+                <span>浏览文库</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a href="#featured" class="btn btn-large btn-ghost">
+                <span>精选推荐</span>
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">363</span>
+                <span class="stat-label">本小说</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-number">每日</span>
+                <span class="stat-label">自动更新</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="floating-cards">
+            <div class="float-card card-1" style="--delay: 0.2s">
+                <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/07/1fe540df-8bad-4a7c-a28c-bd6960466917.jpg" alt="" loading="lazy">
+            </div>
+            <div class="float-card card-2" style="--delay: 0.4s">
+                <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/06/9ad97d6b-f8fe-4b5c-8b65-f74b2b44beca.jpg" alt="" loading="lazy">
+            </div>
+            <div class="float-card card-3" style="--delay: 0.6000000000000001s">
+                <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2025/12/9c4afdb5-1ac4-4ac8-a2ab-40a61656baf1.jpg" alt="" loading="lazy">
+            </div>
+            <div class="float-card card-4" style="--delay: 0.8s">
+                <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2025/12/6457681d-dc3a-44ae-9d96-80d01367859e.jpg" alt="" loading="lazy">
+            </div>
+            <div class="float-card card-5" style="--delay: 1.0s">
+                <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/07/60688d12-a2c0-4120-969b-3b79d24fb9f3.jpg" alt="" loading="lazy">
+            </div>
+            <div class="float-card card-6" style="--delay: 1.2000000000000002s">
+                <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2026/04/d0f5eb64-38c7-4384-9dda-8206d455e543.jpg" alt="" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Section -->
+<section class="featured" id="featured">
+    <div class="section-header">
+        <span class="section-tag">Featured</span>
+        <h2 class="section-title">精选推荐</h2>
+    </div>
+    <div class="featured-grid">
+        <article class="featured-card">
+            <a href="n/5320117.html" class="featured-link">
+                <div class="featured-cover">
+                    <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/07/1fe540df-8bad-4a7c-a28c-bd6960466917.jpg" alt="The Wars in the Blue Sky" loading="lazy">
+                </div>
+                <div class="featured-info">
+                    <span class="featured-type">Sci-Fi</span>
+                    <h3 class="featured-title">The Wars in the Blue Sky</h3>
+                    <p class="featured-intro">Colonel Carl Neinheim, the ace pilot, was killed in the Battle of Hurricane Fort...</p>
+                </div>
+            </a>
+        </article>
+        <article class="featured-card">
+            <a href="n/5320078.html" class="featured-link">
+                <div class="featured-cover">
+                    <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/06/9ad97d6b-f8fe-4b5c-8b65-f74b2b44beca.jpg" alt="I Became a Fellow Zombie in the Apocalypse" loading="lazy">
+                </div>
+                <div class="featured-info">
+                    <span class="featured-type">Sci-Fi</span>
+                    <h3 class="featured-title">I Became a Fellow Zombie in the Apocalypse</h3>
+                    <p class="featured-intro">Infected by a virus, I  became an immortal King!
+Bitten by a zombie I didn't die...</p>
+                </div>
+            </a>
+        </article>
+        <article class="featured-card">
+            <a href="n/5320174.html" class="featured-link">
+                <div class="featured-cover">
+                    <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2025/12/9c4afdb5-1ac4-4ac8-a2ab-40a61656baf1.jpg" alt="With the Plot in Hand, I’m Invincible in Another World" loading="lazy">
+                </div>
+                <div class="featured-info">
+                    <span class="featured-type">Magic</span>
+                    <h3 class="featured-title">With the Plot in Hand, I’m Invincible in Another World</h3>
+                    <p class="featured-intro">"Say, have you ever heard of fate?"
+"Fate... heh. That nebulous, flimsy thing? I...</p>
+                </div>
+            </a>
+        </article>
+        <article class="featured-card">
+            <a href="n/5320190.html" class="featured-link">
+                <div class="featured-cover">
+                    <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2025/12/6457681d-dc3a-44ae-9d96-80d01367859e.jpg" alt="After I Became a Monster, My Life Was Anything but Normal" loading="lazy">
+                </div>
+                <div class="featured-info">
+                    <span class="featured-type">Urban</span>
+                    <h3 class="featured-title">After I Became a Monster, My Life Was Anything but Normal</h3>
+                    <p class="featured-intro">You came to carve out a life in a strange metropolis—never imagining that on day...</p>
+                </div>
+            </a>
+        </article>
+        <article class="featured-card">
+            <a href="n/5320138.html" class="featured-link">
+                <div class="featured-cover">
+                    <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2023/07/60688d12-a2c0-4120-969b-3b79d24fb9f3.jpg" alt="The Other World Journey With Blade and Summoning" loading="lazy">
+                </div>
+                <div class="featured-info">
+                    <span class="featured-type">Magic</span>
+                    <h3 class="featured-title">The Other World Journey With Blade and Summoning</h3>
+                    <p class="featured-intro">Waking up in an unknown world... In just a few months, I gained the strongest po...</p>
+                </div>
+            </a>
+        </article>
+        <article class="featured-card">
+            <a href="n/5320364.html" class="featured-link">
+                <div class="featured-cover">
+                    <img src="https://osrs.sfacg.com/web/novel/images/NovelCover/Big/2026/04/d0f5eb64-38c7-4384-9dda-8206d455e543.jpg" alt="From a Million in Debt to Becoming a Girl Idol" loading="lazy">
+                </div>
+                <div class="featured-info">
+                    <span class="featured-type">School</span>
+                    <h3 class="featured-title">From a Million in Debt to Becoming a Girl Idol</h3>
+                    <p class="featured-intro">I Snuck into the Ladies’ Room in a Little Skirt—Only to Be Caught Red-Handed by ...</p>
+                </div>
+            </a>
+        </article>
+    </div>
+    <div class="section-footer">
+        <a href="list.html" class="btn btn-secondary">
+            <span>查看全部</span>
+            <span>→</span>
+        </a>
+    </div>
+</section>
+
+<!-- Categories Grid -->
+<section class="categories">
+    <div class="section-header center">
+        <span class="section-tag">Categories</span>
+        <h2 class="section-title">按类型浏览</h2>
+    </div>
+    <div class="category-list">
+        <a href="type/sci-fi.html" class="category-item">
+            <span class="category-name">Sci-Fi</span>
+            <span class="category-count">11</span>
+        </a>
+        <a href="type/magic.html" class="category-item">
+            <span class="category-name">Magic</span>
+            <span class="category-count">230</span>
+        </a>
+        <a href="type/urban.html" class="category-item">
+            <span class="category-name">Urban</span>
+            <span class="category-count">32</span>
+        </a>
+        <a href="type/school.html" class="category-item">
+            <span class="category-name">School</span>
+            <span class="category-count">72</span>
+        </a>
+        <a href="type/game.html" class="category-item">
+            <span class="category-name">Game</span>
+            <span class="category-count">13</span>
+        </a>
+        <a href="type/eastern.html" class="category-item">
+            <span class="category-name">Eastern</span>
+            <span class="category-count">2</span>
+        </a>
+        <a href="type/mystery.html" class="category-item">
+            <span class="category-name">Mystery</span>
+            <span class="category-count">3</span>
+        </a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about">
+    <div class="about-content">
+        <h2 class="about-title">关于 Bunfo</h2>
+        <p class="about-text">
+            Bunfo 是一个自动化轻小说爬虫项目，每天自动抓取 LoloBun 的最新小说数据。
+            使用 GitHub Actions 定时更新，完全开源。
+        </p>
+        <div class="about-links">
+            <a href="list.html" class="about-link">浏览全部 →</a>
+            <a href="https://github.com/light-nook-labs/Bunfo" class="about-link" target="_blank">GitHub →</a>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">数据来源于 <a href="https://www.lolobun.com" target="_blank">LoloBun</a></p>
+            <p class="footer-update">最后更新: 2026-09-07 04:09</p>
+        </div>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>
